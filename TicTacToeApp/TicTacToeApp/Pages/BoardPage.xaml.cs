@@ -15,8 +15,13 @@ namespace TicTacToeApp.Pages
         private bool turn = true;
 
         public BoardPage()
+        {           
+            Initializer();
+        }
+
+        private void Initializer()
         {
-            InitializeComponent();
+            this.InitializeComponent();
             player1 = new Player
             {
                 Name = "Player 1",
@@ -45,9 +50,9 @@ namespace TicTacToeApp.Pages
             button9.Clicked += Button9_Clicked;
         }
 
-        private async void RestartButton_Clicked(object sender, EventArgs e)
+        private void RestartButton_Clicked(object sender, EventArgs e)
         {
-            await DisplayAlert("Warning", "Sorry, this feature is under development", "Ok");
+            Initializer();
         }
 
         private void Button9_Clicked(object sender, EventArgs e)

@@ -1,3 +1,4 @@
+C:\Users\Edwin\documents\visual studio 2015\Projects\TicTacToeApp\TicTacToeApp\TicTacToeApp.Droid\bin\Debug\TicTacToeApp.Droid.dll.config
 C:\Users\Edwin\documents\visual studio 2015\Projects\TicTacToeApp\TicTacToeApp\TicTacToeApp.Droid\bin\Debug\TicTacToeApp.Droid.dll
 C:\Users\Edwin\documents\visual studio 2015\Projects\TicTacToeApp\TicTacToeApp\TicTacToeApp.Droid\bin\Debug\TicTacToeApp.Droid.pdb
 C:\Users\Edwin\documents\visual studio 2015\Projects\TicTacToeApp\TicTacToeApp\TicTacToeApp.Droid\bin\Debug\TicTacToeApp.Droid.apk
@@ -68,6 +69,7 @@ C:\Users\Edwin\documents\visual studio 2015\Projects\TicTacToeApp\TicTacToeApp\T
 C:\Users\Edwin\documents\visual studio 2015\Projects\TicTacToeApp\TicTacToeApp\TicTacToeApp.Droid\obj\Debug\android\assets\Xamarin.Forms.Core.dll.mdb
 C:\Users\Edwin\documents\visual studio 2015\Projects\TicTacToeApp\TicTacToeApp\TicTacToeApp.Droid\obj\Debug\android\assets\Xamarin.Forms.Platform.Android.dll.mdb
 C:\Users\Edwin\documents\visual studio 2015\Projects\TicTacToeApp\TicTacToeApp\TicTacToeApp.Droid\obj\Debug\android\assets\Xamarin.Forms.Xaml.dll.mdb
-C:\Users\Edwin\documents\visual studio 2015\Projects\TicTacToeApp\TicTacToeApp\TicTacToeApp.Droid\bin\Debug\TicTacToeApp.Droid.dll.config
+C:\Users\Edwin\documents\visual studio 2015\Projects\TicTacToeApp\TicTacToeApp\TicTacToeApp.Droid\obj\Debug\android\assets\System.ComponentModel.Composition.dll.mdb
+C:\Users\Edwin\documents\visual studio 2015\Projects\TicTacToeApp\TicTacToeApp\TicTacToeApp.Droid\obj\Debug\android\assets\System.Xml.Linq.dll.mdb
 C:\Users\Edwin\documents\visual studio 2015\Projects\TicTacToeApp\TicTacToeApp\TicTacToeApp.Droid\obj\Debug\TicTacToeApp.Droid.dll.mdb
 C:\Users\Edwin\documents\visual studio 2015\Projects\TicTacToeApp\TicTacToeApp\TicTacToeApp.Droid\bin\Debug\TicTacToeApp.Droid.dll.mdb
