@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using TicTacToeApp.Pages;
+using TicTacToeApp.Views;
 using Xamarin.Forms;
 
 namespace TicTacToeApp
