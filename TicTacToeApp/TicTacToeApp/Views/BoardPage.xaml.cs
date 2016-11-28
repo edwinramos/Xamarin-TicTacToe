@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using TicTacToeApp.Models.Entities;
+using TicTacToeApp.Models.Services;
+using TicTacToeApp.Storage;
 using Xamarin.Forms;
 
 namespace TicTacToeApp.Views
@@ -13,18 +15,22 @@ namespace TicTacToeApp.Views
         private Player player1;
         private Player player2;
         private bool turn = true;
+        public Score score;
+        private AzureClient _client;
+        private DatabaseManager dbManager;
 
         public BoardPage(Player p1, Player p2)
         {
             this.player1 = p1;
             this.player2 = p2;
+            _client = new AzureClient();
             Initializer();
         }
 
         private void Initializer()
         {
             this.InitializeComponent();
-            
+
 
             playerLabel.Text = player1.Name;
 
@@ -48,82 +54,80 @@ namespace TicTacToeApp.Views
 
         private void Button9_Clicked(object sender, EventArgs e)
         {
+            button9.IsEnabled = false;
             TurnManager(button9);
             Check(button7, button8, button9);
             Check(button3, button6, button9);
             Check(button1, button5, button9);
-            button9.IsEnabled = false;
         }
 
         private void Button8_Clicked(object sender, EventArgs e)
         {
+            button8.IsEnabled = false;
             TurnManager(button8);
             Check(button7, button8, button9);
             Check(button2, button5, button8);
-            button8.IsEnabled = false;
         }
 
         private void Button7_Clicked(object sender, EventArgs e)
         {
+            button7.IsEnabled = false;
             TurnManager(button7);
             Check(button7, button8, button9);
             Check(button1, button4, button7);
             Check(button3, button5, button7);
-            button7.IsEnabled = false;
         }
 
         private void Button6_Clicked(object sender, EventArgs e)
         {
+            button6.IsEnabled = false;
             TurnManager(button6);
             Check(button4, button5, button6);
             Check(button3, button6, button9);
-            button6.IsEnabled = false;
         }
 
         private void Button5_Clicked(object sender, EventArgs e)
         {
+            button5.IsEnabled = false;
             TurnManager(button5);
             Check(button4, button5, button6);
             Check(button1, button5, button9);
             Check(button2, button5, button8);
             Check(button3, button5, button7);
-            button5.IsEnabled = false;
         }
 
         private void Button4_Clicked(object sender, EventArgs e)
         {
+            button4.IsEnabled = false;
             TurnManager(button4);
             Check(button4, button5, button6);
             Check(button1, button4, button7);
-            button4.IsEnabled = false;
         }
 
         private void Button3_Clicked(object sender, EventArgs e)
         {
+            button3.IsEnabled = false;
             TurnManager(button3);
             Check(button1, button2, button3);
             Check(button3, button5, button7);
             Check(button3, button6, button9);
-            button3.IsEnabled = false;
         }
 
         private void Button2_Clicked(object sender, EventArgs e)
         {
-
+            button2.IsEnabled = false;
             TurnManager(button2);
             Check(button1, button2, button3);
             Check(button2, button5, button8);
-            button2.IsEnabled = false;
         }
 
         private void Button1_Clicked(object sender, EventArgs e)
         {
-
+            button1.IsEnabled = false;
             TurnManager(button1);
             Check(button1, button2, button3);
             Check(button1, button4, button7);
             Check(button1, button5, button9);
-            button1.IsEnabled = false;
         }
 
         private void DisabelGame()
@@ -152,15 +156,52 @@ namespace TicTacToeApp.Views
                 b3.BackgroundColor = Color.Green;
                 b3.TextColor = Color.Black;
 
-                if (!this.turn)
-                {
-                    playerLabel.Text = player1.Name + " Wins!";
-                }
-                else
-                {
-                    playerLabel.Text = player2.Name + " Wins!";
-                }
+                ResultManager();
                 DisabelGame();
+
+                Random rdn = new Random(DateTime.Now.Millisecond);
+                dbManager = new DatabaseManager();
+                score = new Score()
+                {
+                    //Key = rdn.Next(12384748, 32384748).ToString(),
+                    Player1 = player1.Name,
+                    Player2 = player1.Name,
+                    ScoreDate = DateTime.Now.Date,
+                    MatchResult = playerLabel.Text,
+                    WinnerName = "LOLA"
+                };
+                //var ss = dbManager.GetAllItems<Score>();
+                //dbManager.SaveValue<Score>(score);
+                _client.AddScore(score);
+            }
+            //if (!button1.IsEnabled && !button2.IsEnabled && !button3.IsEnabled && !button4.IsEnabled && !button5.IsEnabled && !button6.IsEnabled && !button7.IsEnabled && !button8.IsEnabled && !button9.IsEnabled)
+            //{
+            //    playerLabel.Text = "Tied!";
+            //    score = new Score()
+            //    {
+            //        Player1 = player1.Name,
+            //        Player2 = player1.Name,
+            //        ScoreDate = DateTime.Now.Date,
+            //        MatchResult = playerLabel.Text
+            //    };
+
+            //    _client.AddScore(score);
+            //    return;
+            //}
+            
+        }
+
+        private void ResultManager()
+        {
+
+
+            if (!this.turn)
+            {
+                playerLabel.Text = player1.Name + " Wins!";
+            }
+            else
+            {
+                playerLabel.Text = player2.Name + " Wins!";
             }
         }
 
@@ -178,7 +219,7 @@ namespace TicTacToeApp.Views
             }
             this.turn = !this.turn;
 
-            
+
         }
     }
 }

@@ -2,17 +2,19 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="TicTacToeApp.Views.ScoresPage">
-  
-  <ListView ItemsSource="{Binding ScoreList}"
-              IsRefreshing="{Binding IsBusy}"
-              IsPullToRefreshEnabled="True"
-              RefreshCommand="{Binding RefreshCommand}">
-      <ListView.ItemTemplate>
-        <DataTemplate>
-          <TextCell Text="{Binding Name}"
-                    Detail="{Binding Id}"/>
-        </DataTemplate>
-      </ListView.ItemTemplate>
-    </ListView>
-
+  <StackLayout Padding="20">
+    <Button Text="Load Score" Command="Binding LoadScoreCommand"></Button>
+    <Button Text="Clean Score" Command="Binding CleanLocalDataCommand"></Button>
+    <ListView ItemsSource="{Binding ScoreList}"
+                IsRefreshing="{Binding IsBusy}"
+                IsPullToRefreshEnabled="True"
+                RefreshCommand="{Binding RefreshCommand}">
+        <ListView.ItemTemplate>
+          <DataTemplate>
+            <TextCell Text="{Binding Name}"
+                      Detail="{Binding Id}"/>
+          </DataTemplate>
+        </ListView.ItemTemplate>
+      </ListView>
+   </StackLayout>
 </ContentPage>
