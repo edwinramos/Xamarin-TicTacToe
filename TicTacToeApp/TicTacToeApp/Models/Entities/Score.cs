@@ -1,11 +1,6 @@
 ﻿using Microsoft.WindowsAzure.MobileServices;
 using Newtonsoft.Json;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using TicTacToeApp.Storage;
 
 namespace TicTacToeApp.Models.Entities
 {
@@ -31,8 +26,5 @@ namespace TicTacToeApp.Models.Entities
 
         [JsonProperty("Winner_Name")]
         public string WinnerName { get; set; }
-
-        [Version]
-        public string Version { get; set; }
     }
 }

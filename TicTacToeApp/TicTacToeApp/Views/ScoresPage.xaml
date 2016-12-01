@@ -3,16 +3,22 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="TicTacToeApp.Views.ScoresPage">
   <StackLayout Padding="20">
-    <Button Text="Load Score" Command="Binding LoadScoreCommand"></Button>
-    <Button Text="Clean Score" Command="Binding CleanLocalDataCommand"></Button>
+    <Button Text="Load Score" Command="{Binding LoadScoreCommand}"></Button>
+    <Button Text="Clean Score" Command="{Binding CleanLocalDataCommand}"></Button>
     <ListView ItemsSource="{Binding ScoreList}"
                 IsRefreshing="{Binding IsBusy}"
                 IsPullToRefreshEnabled="True"
                 RefreshCommand="{Binding RefreshCommand}">
         <ListView.ItemTemplate>
           <DataTemplate>
-            <TextCell Text="{Binding Name}"
-                      Detail="{Binding Id}"/>
+            <ViewCell>
+              <ViewCell.View>
+                <StackLayout>
+                  <Label Text="{Binding MatchResult}" />
+                  <Label Text="{Binding ScoreDate}" />
+                </StackLayout>
+              </ViewCell.View>
+            </ViewCell>
           </DataTemplate>
         </ListView.ItemTemplate>
       </ListView>

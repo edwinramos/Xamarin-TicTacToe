@@ -24,7 +24,7 @@ namespace TicTacToeApp.ViewModels
         
         public ScoreVM()
         {
-            RefreshCommand = new Command(() => Refresh());
+            RefreshCommand = new Command(() => Load());
             LoadScoreCommand = new Command(() => Load());
             CleanLocalDataCommand = new Command(() => CleanLocalData());
             ScoreList = new ObservableCollection<Score>();

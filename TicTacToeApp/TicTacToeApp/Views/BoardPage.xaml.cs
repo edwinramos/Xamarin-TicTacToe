@@ -5,7 +5,6 @@ using System.Text;
 using System.Threading.Tasks;
 using TicTacToeApp.Models.Entities;
 using TicTacToeApp.Models.Services;
-using TicTacToeApp.Storage;
 using Xamarin.Forms;
 
 namespace TicTacToeApp.Views
@@ -17,7 +16,6 @@ namespace TicTacToeApp.Views
         private bool turn = true;
         public Score score;
         private AzureClient _client;
-        private DatabaseManager dbManager;
 
         public BoardPage(Player p1, Player p2)
         {
@@ -160,19 +158,17 @@ namespace TicTacToeApp.Views
                 DisabelGame();
 
                 Random rdn = new Random(DateTime.Now.Millisecond);
-                dbManager = new DatabaseManager();
                 score = new Score()
                 {
-                    //Key = rdn.Next(12384748, 32384748).ToString(),
+                    Id = rdn.Next(12384748, 32384748).ToString(),
                     Player1 = player1.Name,
                     Player2 = player1.Name,
                     ScoreDate = DateTime.Now.Date,
                     MatchResult = playerLabel.Text,
                     WinnerName = "LOLA"
                 };
-                //var ss = dbManager.GetAllItems<Score>();
-                //dbManager.SaveValue<Score>(score);
                 _client.AddScore(score);
+                DisplayAlert("Congratulations!", score.MatchResult, "Return to Game");
             }
             //if (!button1.IsEnabled && !button2.IsEnabled && !button3.IsEnabled && !button4.IsEnabled && !button5.IsEnabled && !button6.IsEnabled && !button7.IsEnabled && !button8.IsEnabled && !button9.IsEnabled)
             //{

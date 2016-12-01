@@ -14,16 +14,16 @@ namespace TicTacToeApp.Models.Services
     {
         private IMobileServiceClient _client;
         private IMobileServiceSyncTable<Score> _table;
-        const string dbPath = "TicTacToeDB";
-        private const string serviceUri = "http://tictactoexamarin.azurewebsites.net/";
+        const string dbPath = "TicTacToe.db";
+        private const string serviceUri = @"http://tictactoexamarin.azurewebsites.net";
 
         public AzureClient()
         {
-            _client = new MobileServiceClient(serviceUri);
+            this._client = new MobileServiceClient(serviceUri);
             var store = new MobileServiceSQLiteStore(dbPath);
             store.DefineTable<Score>();
-            _client.SyncContext.InitializeAsync(store);
-            _table = _client.GetSyncTable<Score>();
+            this._client.SyncContext.InitializeAsync(store);
+            this._table = _client.GetSyncTable<Score>();
         }
 
         public async Task<IEnumerable<Score>> GetScores()
@@ -34,7 +34,7 @@ namespace TicTacToeApp.Models.Services
                 if (Plugin.Connectivity.CrossConnectivity.Current.IsConnected)
                     await SyncAsync();
 
-                return await _table.ToEnumerableAsync();
+                return await this._table.ToEnumerableAsync();
             }
             catch (Exception ex)
             {
@@ -44,7 +44,8 @@ namespace TicTacToeApp.Models.Services
 
         public async void AddScore(Score score)
         {
-            await _table.InsertAsync(score);
+            await this._table.InsertAsync(score);
+            await this._table.MobileServiceClient.SyncContext.PushAsync();
         }
 
         public async Task SyncAsync()
@@ -52,9 +53,9 @@ namespace TicTacToeApp.Models.Services
             IReadOnlyCollection<MobileServiceTableOperationError> syncErrors = null;
             try
             {
-                await _client.SyncContext.PushAsync();
+                await this._client.SyncContext.PushAsync();
 
-                await _table.PullAsync("allScores", _table.CreateQuery());
+                await this._table.PullAsync("allScores", _table.CreateQuery());
             }
             catch (MobileServicePushFailedException pushEx)
             {
@@ -65,7 +66,7 @@ namespace TicTacToeApp.Models.Services
 
         public async Task CleanData()
         {
-            await _table.PurgeAsync("allScores", _table.CreateQuery(), new System.Threading.CancellationToken());
+            await this._table.PurgeAsync("allScores", _table.CreateQuery(), new System.Threading.CancellationToken());
         }
     }
 }

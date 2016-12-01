@@ -41,5 +41,3 @@ C:\Users\Edwin\documents\visual studio 2015\Projects\TicTacToeApp\TicTacToeApp\T
 C:\Users\Edwin\documents\visual studio 2015\Projects\TicTacToeApp\TicTacToeApp\TicTacToeApp\bin\Debug\SQLite-net.xml
 C:\Users\Edwin\documents\visual studio 2015\Projects\TicTacToeApp\TicTacToeApp\TicTacToeApp\obj\Debug\TicTacToeApp.dll.mdb
 C:\Users\Edwin\documents\visual studio 2015\Projects\TicTacToeApp\TicTacToeApp\TicTacToeApp\bin\Debug\TicTacToeApp.dll.mdb
-C:\Users\Edwin\documents\visual studio 2015\Projects\TicTacToeApp\TicTacToeApp\TicTacToeApp\obj\Debug\TicTacToeApp.dll.mdb
-C:\Users\Edwin\documents\visual studio 2015\Projects\TicTacToeApp\TicTacToeApp\TicTacToeApp\bin\Debug\TicTacToeApp.dll.mdb

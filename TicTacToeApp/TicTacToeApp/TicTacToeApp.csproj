@@ -36,12 +36,11 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="App.cs" />
+    <Compile Include="Models\Entities\Contact.cs" />
     <Compile Include="Models\Entities\ObservableBaseObject.cs" />
     <Compile Include="Models\Entities\Player.cs" />
     <Compile Include="Models\Entities\Score.cs" />
     <Compile Include="Models\Services\AzureClient.cs" />
-    <Compile Include="Storage\DatabaseManager.cs" />
-    <Compile Include="Storage\Interfaces\ISQLite.cs" />
     <Compile Include="ViewModels\ScoreVM.cs" />
     <Compile Include="Views\BoardPage.xaml.cs">
       <DependentUpon>BoardPage.xaml</DependentUpon>

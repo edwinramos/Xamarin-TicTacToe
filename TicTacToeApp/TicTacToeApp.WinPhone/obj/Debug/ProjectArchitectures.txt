@@ -1,0 +1,2 @@
+C:\Users\Edwin\documents\visual studio 2015\Projects\TicTacToeApp\TicTacToeApp\TicTacToeApp.WinPhone\TicTacToeApp.WinPhone.csproj;neutral
+C:\Users\Edwin\documents\visual studio 2015\Projects\TicTacToeApp\TicTacToeApp\TicTacToeApp\TicTacToeApp.csproj;neutral
