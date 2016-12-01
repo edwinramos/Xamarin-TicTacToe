@@ -11,14 +11,9 @@
                 RefreshCommand="{Binding RefreshCommand}">
         <ListView.ItemTemplate>
           <DataTemplate>
-            <ViewCell>
-              <ViewCell.View>
-                <StackLayout>
-                  <Label Text="{Binding MatchResult}" />
-                  <Label Text="{Binding ScoreDate}" />
-                </StackLayout>
-              </ViewCell.View>
-            </ViewCell>
+            <TextCell Text="{Binding MatchResult}"
+                      Detail="{Binding ScoreDate}"
+                      TextColor="Blue"/>
           </DataTemplate>
         </ListView.ItemTemplate>
       </ListView>

@@ -26,5 +26,8 @@ namespace TicTacToeApp.Models.Entities
 
         [JsonProperty("Winner_Name")]
         public string WinnerName { get; set; }
+
+        [Version]
+        public string Version { get; set; }
     }
 }
